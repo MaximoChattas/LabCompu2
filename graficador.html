@@ -2,21 +2,59 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Graficador de Funciones Lineales</title>
+    <title>Funciones Lineales | Graficador</title>
     <meta content="Maximo Chattas" name="autor">
     <meta content="Graficador de Funciones Lineales" name="descripcion">
     <meta content="funciones lineales , analisis matematico , curva , grafico , pendiente" name="keywords">
 </head>
-
 <body>
+<header>
+    <h1>Graficador de Funciones Lineales</h1>
+</header>
+
 <nav>
     <a href="index.html">Home</a>
     <a href="marco_teorico.html">Marco Teorico</a>
 </nav>
+<p>ƒ(x,y) =</p>
+<form name="funcionLineal" id="funcionLineal">
+    <input type="number" name="terminoLineal" id="terminoLineal" value="1" required> X
+    <label for="terminoLineal"></label>
 
-<header>
-    <h1>Graficador de Funciones Lineales</h1>
-</header>
+    <label for="terminoIndependiente"></label> +
+    <input type="number" name="terminoIndependiente" id="terminoIndependiente" value="0" required>
+
+    <button>Graficar</button>
+</form>
+    <br>
+    <canvas id="graficoLineal" width="1000" height="500" style="border: black solid 5px"> <!--ELIMINAR ESTILO EN LINEA-->
+        No se puede mostrar el grafico
+    </canvas>
+
+<h4>Información sobre la función:</h4>
+<form name="infoFuncion" id="infoFuncion">
+    <label for="pendiente">Derivada/Pendiente:</label>
+    <input type="number" id="pendiente" readonly>
+
+    <br>
+    <br>
+
+    <label for="angulo">Ángulo:</label>
+    <input type="number" id="angulo" readonly>
+
+    <br>
+    <br>
+
+    Ordenada al Origen:
+    (<input type="number" id="OOx" readonly><label for="OOx"></label> , <input type="number" id="OOy" readonly><label for="OOy"></label>)
+
+    <br>
+    <br>
+
+    Raíz:
+    (<input type="number" id="Rx" readonly><label for="Rx"></label> , <input type="number" id="Ry" readonly><label for="Ry"></label>)
+
+</form>
 
 </body>
 </html>
