@@ -1,0 +1,94 @@
+body
+{
+    min-height: 100vh;
+}
+
+header
+{
+    width: 100%;
+    height: 5em;
+    background-color: #FF0000;
+}
+
+header h1
+{
+    color: #FFFFFF;
+    font-weight: bolder;
+}
+
+nav
+{
+    width: 100%;
+    height: 50px;
+    background-color: #d0d0d0;
+    border-bottom: #000000 solid 2px;
+    margin-bottom: 2em;
+}
+
+footer
+{
+    position: sticky;
+    top: 100%;
+    width: 100%;
+    height: 50px;
+    background-color: #d0d0d0;
+    border-top: 2px solid #000000;
+    margin-top: 2em;
+}
+
+
+.verticalCenterAlign
+{
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.verticalLeftAlign
+{
+    height: inherit;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.verticalRightAlign
+{
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin-right: 10px;
+}
+
+.navButton
+{
+    color: #000000;
+    border: 2px solid #000000;
+    border-radius: 12px;
+    text-decoration: none;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.navButton:hover
+{
+    border: 2px solid #FF0000;
+    font-weight: bold;
+}
+
+.navButton:active
+{
+    text-decoration: underline;
+}
+
+#imgIndex
+{
+    height: 30em;
+}
+
+input
+{
+    width: 5em;
+}

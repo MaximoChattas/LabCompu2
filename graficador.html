@@ -6,6 +6,8 @@
     <meta content="Maximo Chattas" name="autor">
     <meta content="Graficador de Funciones Lineales" name="descripcion">
     <meta content="funciones lineales , analisis matematico , curva , grafico , pendiente" name="keywords">
+    <link rel="stylesheet" href="stylesheet.css" type="text/css">
+
 </head>
 <body>
 <header>
@@ -16,20 +18,24 @@
     <a href="index.html">Home</a>
     <a href="marco_teorico.html">Marco Teorico</a>
 </nav>
-<p>ƒ(x,y) =</p>
+
 <form name="funcionLineal" id="funcionLineal">
-    <input type="number" name="terminoLineal" id="terminoLineal" value="1" required> X
-    <label for="terminoLineal"></label>
+    <div class="verticalCenterAlign">
+        <p>ƒ(x,y) =</p>
+        <input type="number" name="terminoLineal" id="terminoLineal" value="1" required> X
+        <label for="terminoLineal"></label>
 
-    <label for="terminoIndependiente"></label> +
-    <input type="number" name="terminoIndependiente" id="terminoIndependiente" value="0" required>
-
-    <button>Graficar</button>
+        <label for="terminoIndependiente"></label> +
+        <input type="number" name="terminoIndependiente" id="terminoIndependiente" value="0" required>
+    </div>
+    <div class="verticalCenterAlign">
+        <button>Graficar</button>
+    </div>
 </form>
-    <br>
-    <canvas id="graficoLineal" width="1000" height="500" style="border: black solid 5px"> <!--ELIMINAR ESTILO EN LINEA-->
-        No se puede mostrar el grafico
-    </canvas>
+<br>
+<canvas id="graficoLineal" width="1000" height="500" style="border: black solid 5px"> <!--ELIMINAR ESTILO EN LINEA-->
+    No se puede mostrar el grafico
+</canvas>
 
 <h4>Información sobre la función:</h4>
 <form name="infoFuncion" id="infoFuncion">
@@ -40,7 +46,7 @@
     <br>
 
     <label for="angulo">Ángulo:</label>
-    <input type="number" id="angulo" readonly>
+    <input type="number" id="angulo" readonly>º
 
     <br>
     <br>
@@ -55,6 +61,10 @@
     (<input type="number" id="Rx" readonly><label for="Rx"></label> , <input type="number" id="Ry" readonly><label for="Ry"></label>)
 
 </form>
+
+<footer>
+
+</footer>
 
 </body>
 </html>
