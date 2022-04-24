@@ -1,19 +1,28 @@
 body
 {
     min-height: 100vh;
+    min-width: 1200px;
 }
 
 header
 {
     width: 100%;
-    height: 5em;
+    height: 6em;
     background-color: #FF0000;
 }
 
 header h1
 {
     color: #FFFFFF;
+    font-family: 'Archivo Black' , sans-serif;
+    font-size: 50px;
     font-weight: bolder;
+}
+
+h3
+{
+    text-decoration: underline;
+    font-size: 20px;
 }
 
 nav
@@ -21,8 +30,8 @@ nav
     width: 100%;
     height: 50px;
     background-color: #d0d0d0;
-    border-bottom: #000000 solid 2px;
-    margin-bottom: 2em;
+    border-bottom: 2px solid #000000;
+    margin-bottom: 1em;
 }
 
 footer
@@ -33,7 +42,7 @@ footer
     height: 50px;
     background-color: #d0d0d0;
     border-top: 2px solid #000000;
-    margin-top: 2em;
+    margin-top: 1em;
 }
 
 
@@ -88,7 +97,82 @@ footer
     height: 30em;
 }
 
+#imgCrecienteDecreciente
+{
+    height: 10em;
+}
+
+#imgIdentidad
+{
+    height: 10em;
+    border: 1px solid #000000;
+}
+
 input
 {
     width: 5em;
+}
+
+canvas
+{
+    border: #000000 solid 3px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    height: 30em;
+    width: 100%;
+}
+
+#gridContainerTeoria
+{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: auto auto auto auto;
+    row-gap: 20px;
+
+}
+
+#gridContainerDeveloper
+{
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: auto auto auto auto;
+}
+
+#gridContainerTeoria p
+{
+    text-align: justify;
+    font-size: 18px;
+}
+
+#gridContainerTeoria img
+{
+    display: block;
+    margin: auto;
+}
+
+#gridContainerTeoria div
+{
+    border-bottom: 1px solid #b9b9b9;
+}
+
+.col1
+{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    padding-left: 10px;
+}
+
+.col2
+{
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.col1-2
+{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding-left: 10px;
+    padding-right: 10px;
 }

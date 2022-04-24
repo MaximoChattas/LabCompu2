@@ -8,59 +8,69 @@
     <meta content="funciones lineales , analisis matematico , curva , grafico , pendiente" name="keywords">
     <link rel="stylesheet" href="stylesheet.css" type="text/css">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+
 </head>
 <body>
 <header>
-    <h1>Graficador de Funciones Lineales</h1>
+    <div class="verticalCenterAlign">
+        <h1>Graficador de Funciones Lineales</h1>
+    </div>
 </header>
 
 <nav>
-    <a href="index.html">Home</a>
-    <a href="marco_teorico.html">Marco Teorico</a>
+    <div class="verticalLeftAlign">
+        <a href="index.html" class="navButton">Home</a>
+        <a href="marco_teorico.html" class="navButton">Marco Teorico</a>
+    </div>
 </nav>
 
-<form name="funcionLineal" id="funcionLineal">
-    <div class="verticalCenterAlign">
-        <p>ƒ(x,y) =</p>
-        <input type="number" name="terminoLineal" id="terminoLineal" value="1" required> X
-        <label for="terminoLineal"></label>
+<section>
+    <form name="funcionLineal" id="funcionLineal">
+        <div class="verticalCenterAlign">
+            <p>ƒ(x,y) =</p>
+            <input type="number" name="terminoLineal" id="terminoLineal" value="1" required> X
+            <label for="terminoLineal"></label>
 
-        <label for="terminoIndependiente"></label> +
-        <input type="number" name="terminoIndependiente" id="terminoIndependiente" value="0" required>
-    </div>
-    <div class="verticalCenterAlign">
-        <button>Graficar</button>
-    </div>
-</form>
-<br>
-<canvas id="graficoLineal" width="1000" height="500" style="border: black solid 5px"> <!--ELIMINAR ESTILO EN LINEA-->
-    No se puede mostrar el grafico
-</canvas>
-
-<h4>Información sobre la función:</h4>
-<form name="infoFuncion" id="infoFuncion">
-    <label for="pendiente">Derivada/Pendiente:</label>
-    <input type="number" id="pendiente" readonly>
-
+            <label for="terminoIndependiente"></label> +
+            <input type="number" name="terminoIndependiente" id="terminoIndependiente" value="0" required>
+        </div>
+        <div class="verticalCenterAlign">
+            <button>Graficar</button>
+        </div>
+    </form>
     <br>
-    <br>
+    <canvas id="graficoLineal">
+        No se puede mostrar el grafico
+    </canvas>
 
-    <label for="angulo">Ángulo:</label>
-    <input type="number" id="angulo" readonly>º
+    <h4>Información sobre la función:</h4>
+    <form name="infoFuncion" id="infoFuncion">
+        <label for="pendiente">Derivada/Pendiente:</label>
+        <input type="number" id="pendiente" readonly>
 
-    <br>
-    <br>
+        <br>
+        <br>
 
-    Ordenada al Origen:
-    (<input type="number" id="OOx" readonly><label for="OOx"></label> , <input type="number" id="OOy" readonly><label for="OOy"></label>)
+        <label for="angulo">Ángulo:</label>
+        <input type="number" id="angulo" readonly>º
 
-    <br>
-    <br>
+        <br>
+        <br>
 
-    Raíz:
-    (<input type="number" id="Rx" readonly><label for="Rx"></label> , <input type="number" id="Ry" readonly><label for="Ry"></label>)
+        Ordenada al Origen:
+        (<input type="number" id="OOx" readonly><label for="OOx"></label> , <input type="number" id="OOy" readonly><label for="OOy"></label>)
 
-</form>
+        <br>
+        <br>
+
+        Raíz:
+        (<input type="number" id="Rx" readonly><label for="Rx"></label> , <input type="number" id="Ry" readonly><label for="Ry"></label>)
+
+    </form>
+</section>
 
 <footer>
 
