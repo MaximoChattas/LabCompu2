@@ -45,6 +45,22 @@ footer
     margin-top: 1em;
 }
 
+li
+{
+    font-size: 12pt;
+}
+
+li a
+{
+    text-decoration: none;
+    color: #000000;
+}
+
+li a:hover
+{
+    text-decoration: underline;
+}
+
 
 .verticalCenterAlign
 {
