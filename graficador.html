@@ -50,28 +50,27 @@
 
     <h4>Información sobre la función:</h4>
     <form name="infoFuncion" id="infoFuncion">
-        <label for="pendiente">Derivada/Pendiente:</label>
-        <input type="number" id="pendiente" readonly>
+        <div class="spacing">
+            <label for="pendiente">Derivada/Pendiente:</label>
+            <input type="number" id="pendiente" readonly>
+        </div>
 
-        <br>
-        <br>
+        <div class="spacing">
+            <label for="angulo">Ángulo:</label>
+            <input type="number" id="angulo" readonly>º
+        </div>
 
-        <label for="angulo">Ángulo:</label>
-        <input type="number" id="angulo" readonly>º
+        <div class="spacing">
+            Ordenada al Origen:
+            (<input type="number" id="OOx" readonly><label for="OOx"></label> , <input type="number" id="OOy"
+             readonly><label for="OOy"></label>)
+        </div>
 
-        <br>
-        <br>
-
-        Ordenada al Origen:
-        (<input type="number" id="OOx" readonly><label for="OOx"></label> , <input type="number" id="OOy"
-                                                                                   readonly><label for="OOy"></label>)
-
-        <br>
-        <br>
-
-        Raíz:
-        (<input type="number" id="Rx" readonly><label for="Rx"></label> , <input type="number" id="Ry" readonly><label
-            for="Ry"></label>)
+        <div class="spacing">
+            Raíz:
+            (<input type="number" id="Rx" readonly><label for="Rx"></label> , <input type="number" id="Ry" readonly>
+            <label for="Ry"></label>)
+        </div>
 
     </form>
 </section>
