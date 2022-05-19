@@ -113,10 +113,7 @@ input {
 canvas {
     border: #000000 solid 3px;
     display: block;
-    margin-right: auto;
-    margin-left: auto;
-    height: 30em;
-    width: 100%;
+    margin: 20px auto;
 }
 
 #gridContainerTeoria {
@@ -131,6 +128,12 @@ canvas {
     display: grid;
     grid-template-columns: 60% 40%;
     grid-template-rows: auto auto auto auto;
+}
+
+#gridContainerGraficador {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    font-size: 18px;
 }
 
 #gridContainerTeoria p {
@@ -176,4 +179,12 @@ canvas {
 .spacing
 {
     margin-bottom: 20px;
+}
+
+span
+{
+    display: inline-block;
+    width: 20px;
+    margin: 0 3px;
+    font-weight: bold;
 }
