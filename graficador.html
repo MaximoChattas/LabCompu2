@@ -36,16 +36,16 @@
         <div class="verticalCenterAlign">
             <p>ƒ(x,y) =</p>
             <input type="text" name="terminoLineal" id="terminoLineal" value="1" required
-                   onchange="verify(this.id)"> X
+                   onchange="verify(this.id)"> <sup>*</sup> X
             <label for="terminoLineal"></label>
 
             <label for="terminoIndependiente"></label> +
             <input type="text" name="terminoIndependiente" id="terminoIndependiente" value="0" required
-                   onchange="verify(this.id)">
+                   onchange="verify(this.id)"> <sup>*</sup>
         </div>
         <div class="verticalCenterAlign">
             <button type="button"
-                    onclick="calcularPendiente() ; calcularAngulo() ; calcularOrdenadaOrigen() ; calcularRaiz() ;determinarTipo()">
+                    onclick="calculate()">
                 Graficar
             </button>
         </div>
@@ -87,6 +87,7 @@
 </section>
 
 <footer>
+    <p>(*) Campos Requeridos</p>
 
 </footer>
 

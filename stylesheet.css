@@ -39,6 +39,12 @@ footer {
     margin-top: 1em;
 }
 
+footer p {
+    text-align: right;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
 li {
     font-size: 12pt;
 }
@@ -108,6 +114,7 @@ li a:hover {
 
 input {
     width: 5em;
+    border: 1px solid #000000;
 }
 
 canvas {

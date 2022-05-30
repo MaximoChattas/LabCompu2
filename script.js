@@ -4,6 +4,7 @@
  decimales.
  * @method verify
  * @param {string} id - id del input modificado
+ * @return {boolean} - posibilidad de calcular propiedades
  */
 function verify(id) {
     let valor = document.getElementById(id).value;
@@ -14,16 +15,36 @@ function verify(id) {
         document.getElementById(id).value = valor;
     }
 
-    if (isNaN(valor)) {
+    if (valor === "") {
+        alert("Llene los campos requeridos")
+
+        document.getElementById(id).style.borderWidth = "thin";
+        document.getElementById(id).style.borderColor = "red";
+
+        return false;
+
+    } else if (isNaN(valor)) {
         alert("Ingrese un Número");
+
+        document.getElementById(id).style.borderWidth = "thin";
+        document.getElementById(id).style.borderColor = "red";
         document.getElementById(id).value = "";
+
+        return false;
+
+    } else if (id === "terminoLineal" && valor == 0) {
+        alert("La pendiente debe ser distinta de 0");
+
+        document.getElementById(id).style.borderWidth = "thin";
+        document.getElementById(id).style.borderColor = "red";
+        document.getElementById(id).value = "";
+
+        return false;
+
     } else {
         document.getElementById(id).value = round(valor);
-    }
-
-    if (id === "terminoLineal" && valor == 0) {
-        alert("La pendiente debe ser distinta de 0");
-        document.getElementById(id).value = "";
+        document.getElementById(id).style.borderColor = "black";
+        return true;
     }
 }
 
@@ -31,7 +52,7 @@ function verify(id) {
  * Redondea el numero a dos cifras decimales
  * @method round
  * @param {number} num - número a redondear
- * @return número redondeado a dos cifras decimales
+ * @return {number} número redondeado a dos cifras decimales
  */
 function round(num) {
     return Math.round(num * 100) / 100;
@@ -87,5 +108,19 @@ function determinarTipo() {
         document.getElementById("tipo").innerHTML = "Creciente";
     } else {
         document.getElementById("tipo").innerHTML = "Decreciente";
+    }
+}
+
+/**
+ * Verifica que se cumplan las condiciones verificadas, en caso afirmativo llama a las funciones a realizar el calculo de datos
+ * @method calculate
+ */
+function calculate() {
+    if (verify("terminoLineal") && verify("terminoIndependiente")) {
+        calcularPendiente();
+        calcularAngulo();
+        calcularOrdenadaOrigen();
+        calcularRaiz();
+        determinarTipo();
     }
 }
