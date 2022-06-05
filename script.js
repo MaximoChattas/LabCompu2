@@ -1,3 +1,4 @@
+//CALCULO DE VALORES
 /**
  * Verifica si el valor ingresado en el input es un número y además que la pendiente sea ≠0. Caso contrario, lo vacía.
  Además, reemplaza el uso de "," por "." para el separador de decimales y redondea el valor ingresado a dos cifras
@@ -124,3 +125,94 @@ function calculate() {
         determinarTipo();
     }
 }
+
+//CANVAS
+
+/**
+ * Dibuja el cuadriculado del sistema de ejes cartesianos en canvas
+ * @method dibujarCuadriculado
+ */
+function dibujarCuadriculado() {
+    let canvas = document.getElementById("graficoLineal");
+    let context = canvas.getContext("2d");
+
+    //Lineas Horizontales
+    for (let i = 20; i < canvas.height; i += 20) {
+        context.beginPath();
+        context.moveTo(0, i);
+        context.lineTo(canvas.width, i);
+        context.lineWidth = 0.5;
+        context.stroke();
+        context.closePath();
+    }
+
+    //Lineas Verticales
+    for (let i = 20; i < canvas.width; i += 20) {
+        context.beginPath();
+        context.moveTo(i, 0);
+        context.lineTo(i, canvas.height);
+        context.lineWidth = 0.5;
+        context.stroke();
+        context.closePath();
+    }
+
+    //Eje X
+    context.beginPath();
+    context.moveTo(0, canvas.height / 2);
+    context.lineTo(canvas.width, canvas.height / 2);
+    context.lineWidth = 1;
+    context.strokeStyle = "#000000";
+    context.stroke();
+    context.closePath();
+
+    //Eje Y
+    context.beginPath();
+    context.moveTo(canvas.width / 2, 0);
+    context.lineTo(canvas.width / 2, canvas.height);
+    context.lineWidth = 1;
+    context.strokeStyle = "#000000";
+    context.stroke();
+    context.closePath();
+}
+
+/**
+ * A partir de pendiente y ordenada al origen, grafica la recta sobre el canvas
+ * @method graficar
+ * @param {string} m - Pendiente de la recta
+ * @param {string} b - Ordenada al Origen de la recta
+ */
+function graficar (m , b)
+{
+    let canvas = document.getElementById("graficoLineal");
+    let context = canvas.getContext("2d");
+
+    let d = 20;
+    m = Number(m);
+    b = Number(b);
+
+    canvas.width = canvas.width;
+    dibujarCuadriculado();
+
+    context.beginPath();
+    for (let X = -canvas.width/(2*d) ; X <= canvas.width/(2*d) ; X++)
+    {
+        let posX = canvas.width/2 + X*d;
+        let y = (m*X + b);
+        let posY = canvas.height/2 - y*d;
+        console.log(y);
+
+        context.lineTo(posX , posY);
+        context.strokeStyle = "#FF0000";
+        context.lineWidth = 1.5;
+        context.stroke();
+    }
+    context.closePath();
+}
+
+// posX = 0    X = -20
+// posX = width/2  X = 0
+// posX = width    X = 20;
+
+// posY = 0    Y = 15
+// posY = height/2  Y = 0
+// posY = height    Y = -15;

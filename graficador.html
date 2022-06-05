@@ -17,7 +17,7 @@
     <script src="script.js" type="text/javascript"></script>
 
 </head>
-<body>
+<body onload="dibujarCuadriculado()">
 <header>
     <div class="verticalCenterAlign">
         <h1>Graficador de Funciones Lineales</h1>
@@ -44,8 +44,7 @@
                    onchange="verify(this.id)"> <sup>*</sup>
         </div>
         <div class="verticalCenterAlign">
-            <button type="button"
-                    onclick="calculate()">
+            <button type="button" onclick="calculate() ; graficar(terminoLineal.value , terminoIndependiente.value)">
                 Graficar
             </button>
         </div>
@@ -53,7 +52,7 @@
 
     <div id="gridContainerGraficador">
         <div class="col1">
-            <canvas id="graficoLineal" width="800px" height="500px">
+            <canvas id="graficoLineal" width="800px" height="600px">
                 No se puede mostrar el grafico
             </canvas>
         </div>
