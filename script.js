@@ -178,8 +178,8 @@ function dibujarCuadriculado() {
 /**
  * A partir de pendiente y ordenada al origen, grafica la recta sobre el canvas
  * @method graficar
- * @param {string} m - Pendiente de la recta
- * @param {string} b - Ordenada al Origen de la recta
+ * @param {number} m - Pendiente de la recta
+ * @param {number} b - Ordenada al Origen de la recta
  */
 function graficar (m , b)
 {
