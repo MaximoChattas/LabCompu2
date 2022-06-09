@@ -113,7 +113,8 @@ function determinarTipo() {
 }
 
 /**
- * Verifica que se cumplan las condiciones verificadas, en caso afirmativo llama a las funciones a realizar el calculo de datos
+ * Verifica que se cumplan las condiciones verificadas, en caso afirmativo llama a las funciones a realizar el calculo
+ * de datos y grafica la funcion en canvas
  * @method calculate
  */
 function calculate() {
@@ -123,6 +124,7 @@ function calculate() {
         calcularOrdenadaOrigen();
         calcularRaiz();
         determinarTipo();
+        graficar(document.getElementById("terminoLineal").value , document.getElementById("terminoIndependiente").value);
     }
 }
 
