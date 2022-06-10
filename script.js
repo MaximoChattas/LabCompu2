@@ -131,15 +131,16 @@ function calculate() {
 //CANVAS
 
 /**
- * Dibuja el cuadriculado del sistema de ejes cartesianos en canvas
+ * Dibuja el cuadriculado del sistema de ejes cartesianos en canvas y su numeración
  * @method dibujarCuadriculado
  */
 function dibujarCuadriculado() {
     let canvas = document.getElementById("graficoLineal");
     let context = canvas.getContext("2d");
+    let d = 20
 
     //Lineas Horizontales
-    for (let i = 20; i < canvas.height; i += 20) {
+    for (let i = d; i < canvas.height; i += d) {
         context.beginPath();
         context.moveTo(0, i);
         context.lineTo(canvas.width, i);
@@ -149,7 +150,7 @@ function dibujarCuadriculado() {
     }
 
     //Lineas Verticales
-    for (let i = 20; i < canvas.width; i += 20) {
+    for (let i = d; i < canvas.width; i += d) {
         context.beginPath();
         context.moveTo(i, 0);
         context.lineTo(i, canvas.height);
@@ -175,6 +176,30 @@ function dibujarCuadriculado() {
     context.strokeStyle = "#000000";
     context.stroke();
     context.closePath();
+
+    //Numeros Eje X
+    for (let i = d ; i < canvas.width ; i += d)
+    {
+        let num = (-canvas.width/2 + i)/d;
+        context.font = "10px Arial";
+
+        if (num % 2 === 0 && num !== 0)
+        {
+            context.fillText(num , i , canvas.height/2 + 10);
+        }
+    }
+
+    //Numeros Eje Y
+    for (let i = d ; i < canvas.height ; i += d)
+    {
+        let num = (canvas.height/2 - i)/d;
+        context.font = "10px Arial";
+
+        if (num % 2 === 0 && num !== 0)
+        {
+            context.fillText(num , canvas.width/2 - 15, i);
+        }
+    }
 }
 
 /**
