@@ -223,13 +223,11 @@ function graficar(m, b) {
         let y = (m * X + b);
         let posY = canvas.height / 2 - y * d;
 
-        if (y >= -16 && y <= 16)
-        {
-            context.lineTo(posX, posY);
-            context.strokeStyle = "#FF0000";
-            context.lineWidth = 1.5;
-            context.stroke();
-        }
+        context.lineTo(posX, posY);
+        context.strokeStyle = "#FF0000";
+        context.lineWidth = 1.5;
+        context.stroke();
+
         X++;
 
         if (X > 20) {
