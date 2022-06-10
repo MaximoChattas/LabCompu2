@@ -124,7 +124,7 @@ function calculate() {
         calcularOrdenadaOrigen();
         calcularRaiz();
         determinarTipo();
-        graficar(document.getElementById("terminoLineal").value , document.getElementById("terminoIndependiente").value);
+        graficar(document.getElementById("terminoLineal").value, document.getElementById("terminoIndependiente").value);
     }
 }
 
@@ -178,38 +178,33 @@ function dibujarCuadriculado() {
     context.closePath();
 
     //Numeros Eje X
-    for (let i = d ; i < canvas.width ; i += d)
-    {
-        let num = (-canvas.width/2 + i)/d;
+    for (let i = d; i < canvas.width; i += d) {
+        let num = (-canvas.width / 2 + i) / d;
         context.font = "10px Arial";
 
-        if (num % 2 === 0 && num !== 0)
-        {
-            context.fillText(num , i , canvas.height/2 + 10);
+        if (num % 2 === 0 && num !== 0) {
+            context.fillText(num, i, canvas.height / 2 + 10);
         }
     }
 
     //Numeros Eje Y
-    for (let i = d ; i < canvas.height ; i += d)
-    {
-        let num = (canvas.height/2 - i)/d;
+    for (let i = d; i < canvas.height; i += d) {
+        let num = (canvas.height / 2 - i) / d;
         context.font = "10px Arial";
 
-        if (num % 2 === 0 && num !== 0)
-        {
-            context.fillText(num , canvas.width/2 - 15, i);
+        if (num % 2 === 0 && num !== 0) {
+            context.fillText(num, canvas.width / 2 - 15, i);
         }
     }
 }
 
 /**
- * A partir de pendiente y ordenada al origen, grafica la recta sobre el canvas
+ * A partir de pendiente y ordenada al origen, grafica la recta sobre el canvas progresivamente (con animación)
  * @method graficar
  * @param {number} m - Pendiente de la recta
  * @param {number} b - Ordenada al Origen de la recta
  */
-function graficar (m , b)
-{
+function graficar(m, b) {
     let canvas = document.getElementById("graficoLineal");
     let context = canvas.getContext("2d");
 
@@ -221,18 +216,28 @@ function graficar (m , b)
     dibujarCuadriculado();
 
     context.beginPath();
-    for (let X = -canvas.width/(2*d) ; X <= canvas.width/(2*d) ; X++)
-    {
-        let posX = canvas.width/2 + X*d;
-        let y = (m*X + b);
-        let posY = canvas.height/2 - y*d;
+    let X = -canvas.width / (2 * d)
+
+    let interval = setInterval(function () {
+        let posX = canvas.width / 2 + X * d;
+        let y = (m * X + b);
+        let posY = canvas.height / 2 - y * d;
         console.log(y);
 
-        context.lineTo(posX , posY);
-        context.strokeStyle = "#FF0000";
-        context.lineWidth = 1.5;
-        context.stroke();
-    }
+        if (y >= -16 && y <= 16)
+        {
+            context.lineTo(posX, posY);
+            context.strokeStyle = "#FF0000";
+            context.lineWidth = 1.5;
+            context.stroke();
+        }
+        X++;
+
+        if (X > 20) {
+            clearInterval(interval);
+        }
+    }, 10)
+
     context.closePath();
 }
 
