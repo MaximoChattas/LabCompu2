@@ -222,7 +222,6 @@ function graficar(m, b) {
         let posX = canvas.width / 2 + X * d;
         let y = (m * X + b);
         let posY = canvas.height / 2 - y * d;
-        console.log(y);
 
         if (y >= -16 && y <= 16)
         {
