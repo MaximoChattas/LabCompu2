@@ -10,12 +10,14 @@
 function verify(id) {
     let valor = document.getElementById(id).value;
 
+    //Reemplazar coma decimal por punto
     if (valor.includes(',')) {
         valor = valor.replace(',', '.');
 
         document.getElementById(id).value = valor;
     }
 
+    //Valor vacío
     if (valor === "") {
         alert("Llene los campos requeridos")
 
@@ -25,6 +27,7 @@ function verify(id) {
         return false;
 
     } else if (isNaN(valor)) {
+        //Valor ingresado no es un numero
         alert("Ingrese un Número");
 
         document.getElementById(id).style.borderWidth = "thin";
@@ -34,6 +37,7 @@ function verify(id) {
         return false;
 
     } else if (id === "terminoLineal" && valor == 0) {
+        //Pendiente 0
         alert("La pendiente debe ser distinta de 0");
 
         document.getElementById(id).style.borderWidth = "thin";
@@ -42,7 +46,17 @@ function verify(id) {
 
         return false;
 
+    } else if (valor > 15 || valor < -15) {
+        //Valores fuera de rango
+        alert("Ingrese valores entre -15 y 15 para visualizar el grafico correctamente");
+
+        document.getElementById(id).style.borderWidth = "thin";
+        document.getElementById(id).style.borderColor = "red";
+        document.getElementById(id).value = "";
+
+        return false;
     } else {
+        //Redondear a dos decimales
         document.getElementById(id).value = round(valor);
         document.getElementById(id).style.borderColor = "black";
         return true;
@@ -126,6 +140,17 @@ function calculate() {
         determinarTipo();
         graficar(document.getElementById("terminoLineal").value, document.getElementById("terminoIndependiente").value);
     }
+
+    else {
+        dibujarCuadriculado();
+        document.getElementById("pendiente").innerHTML = "";
+        document.getElementById("angulo").innerHTML = "";
+        document.getElementById("OOx").innerHTML = "(0";
+        document.getElementById("OOy").innerHTML = ")";
+        document.getElementById("Rx").innerHTML = "(";
+        document.getElementById("Ry").innerHTML = "0)";
+        document.getElementById("tipo").innerHTML = "";
+    }
 }
 
 //CANVAS
@@ -138,6 +163,9 @@ function dibujarCuadriculado() {
     let canvas = document.getElementById("graficoLineal");
     let context = canvas.getContext("2d");
     let d = 20
+    let h = 15;
+
+    canvas.width = canvas.width;
 
     //Lineas Horizontales
     for (let i = d; i < canvas.height; i += d) {
@@ -183,7 +211,7 @@ function dibujarCuadriculado() {
         context.font = "10px Arial";
 
         if (num % 2 === 0 && num !== 0) {
-            context.fillText(num, i, canvas.height / 2 + 10);
+            context.fillText(num, i, canvas.height / 2 + h);
         }
     }
 
@@ -193,9 +221,15 @@ function dibujarCuadriculado() {
         context.font = "10px Arial";
 
         if (num % 2 === 0 && num !== 0) {
-            context.fillText(num, canvas.width / 2 - 15, i);
+            context.fillText(num, canvas.width / 2 - h, i);
         }
     }
+
+    //Nombre Ejes
+    context.font = "15px Arial Bolder";
+    context.fillText("X", canvas.width-h , canvas.height/2 - h);
+    context.fillText("Y", canvas.width/2 + h , h);
+
 }
 
 /**
@@ -212,7 +246,6 @@ function graficar(m, b) {
     m = Number(m);
     b = Number(b);
 
-    canvas.width = canvas.width;
     dibujarCuadriculado();
 
     context.beginPath();
