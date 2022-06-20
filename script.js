@@ -36,16 +36,6 @@ function verify(id) {
 
         return false;
 
-    } else if (id === "terminoLineal" && valor == 0) {
-        //Pendiente 0
-        alert("La pendiente debe ser distinta de 0");
-
-        document.getElementById(id).style.borderWidth = "thin";
-        document.getElementById(id).style.borderColor = "red";
-        document.getElementById(id).value = "";
-
-        return false;
-
     } else if (valor > 15 || valor < -15) {
         //Valores fuera de rango
         alert("Ingrese valores entre -15 y 15 para visualizar el grafico correctamente");
@@ -87,8 +77,14 @@ function calcularPendiente() {
  */
 function calcularAngulo() {
     let pendiente = document.getElementById("terminoLineal").value;
+    let angulo;
 
-    let angulo = round(Math.atan(pendiente) * 180 / Math.PI);
+    if (pendiente == 0) {
+        angulo = "-";
+    } else {
+        angulo = round(Math.atan(pendiente) * 180 / Math.PI);
+    }
+
 
     document.getElementById("angulo").innerHTML = angulo + 'º';
 }
@@ -109,7 +105,13 @@ function calcularRaiz() {
     let tLineal = document.getElementById("terminoLineal").value;
     let tIndependiente = document.getElementById("terminoIndependiente").value;
 
-    document.getElementById("Rx").innerHTML = '(' + round(-tIndependiente / tLineal);
+    if (tLineal == 0) {
+        document.getElementById("Rx").innerHTML = "( -";
+
+    } else {
+        document.getElementById("Rx").innerHTML = '(' + round(-tIndependiente / tLineal);
+    }
+
 }
 
 /**
@@ -121,8 +123,10 @@ function determinarTipo() {
 
     if (pendiente > 0) {
         document.getElementById("tipo").innerHTML = "Creciente";
-    } else {
+    } else if (pendiente < 0) {
         document.getElementById("tipo").innerHTML = "Decreciente";
+    } else {
+        document.getElementById("tipo").innerHTML = "Constante";
     }
 }
 
@@ -139,9 +143,7 @@ function calculate() {
         calcularRaiz();
         determinarTipo();
         graficar(document.getElementById("terminoLineal").value, document.getElementById("terminoIndependiente").value);
-    }
-
-    else {
+    } else {
         dibujarCuadriculado();
         document.getElementById("pendiente").innerHTML = "";
         document.getElementById("angulo").innerHTML = "";
@@ -227,8 +229,8 @@ function dibujarCuadriculado() {
 
     //Nombre Ejes
     context.font = "15px Arial Bolder";
-    context.fillText("X", canvas.width-h , canvas.height/2 - h);
-    context.fillText("Y", canvas.width/2 + h , h);
+    context.fillText("X", canvas.width - h, canvas.height / 2 - h);
+    context.fillText("Y", canvas.width / 2 + h, h);
 
 }
 
