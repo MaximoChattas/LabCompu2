@@ -3,7 +3,7 @@
 - Desarrollador: Chattas Maximo
 - Contenido: Marco Teórico y Simulador de Funciones Lineales
 - Tecnologías implementadas: HTML5, CSS3, JS
-- Link al sitio: [Funciones Lineales](https://ucc-labcompu2.github.io/proyecto2022-chattas/index.html)
+- Link al sitio: [Funciones Lineales](https://ucc-labcompu2-Historico.github.io/proyecto2022-chattas/index.html)
 
 # proyecto2022
 Estructura de Proyecto Lab de Compu II - 2022
